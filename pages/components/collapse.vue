@@ -1,12 +1,13 @@
 <template>
   <div class="menu">
-    <div v-for="(group, index) in menuData" :key="index" class="category">
+    <div v-for="(group, index) in filteredData" :key="index" class="category">
       <div class="category-header" @click="toggleCollapse(index)">
         <strong>{{ group[0]?.category }}</strong>
         <span class="arrow" :class="{ open: !collapsed[index] }">
           <img src="../../public/images/collapse_arrow.png" alt="" />
         </span>
       </div>
+      <hr />
       <div v-show="!collapsed[index]" class="items">
         <div v-for="(item, i) in group" :key="i" class="item-card">
           <input type="checkbox" v-model="item.checked" />
@@ -35,9 +36,10 @@
 </template>
 
 <script setup lang="ts">
-import { useMenuData } from "./collapse";
+import useMenuData from "./collapse";
 
-const { menuData, collapsed, toggleCollapse } = useMenuData();
+const { menuData, collapsed, searchValue, toggleCollapse, filteredData } =
+  useMenuData();
 </script>
 
 <style scoped lang="scss">
@@ -49,7 +51,7 @@ const { menuData, collapsed, toggleCollapse } = useMenuData();
 }
 
 .category {
-  border-bottom: 1px solid #ccc;
+  // border-bottom: 1px solid #ccc;
 
   .category-header {
     display: flex;
@@ -66,7 +68,10 @@ const { menuData, collapsed, toggleCollapse } = useMenuData();
     display: flex;
     justify-content: center;
     width: 15px;
-    height: 15px;
+    height: 20px;
+    img {
+      width: 100%;
+    }
     &.open {
       transform: rotate(180deg);
     }
@@ -105,7 +110,7 @@ const { menuData, collapsed, toggleCollapse } = useMenuData();
 
     img {
       width: 100%;
-      height: 150px;
+      height: 210px;
       object-fit: cover;
       border-radius: 4px;
     }
@@ -132,12 +137,19 @@ const { menuData, collapsed, toggleCollapse } = useMenuData();
       }
 
       .quantity {
-        display: flex;
-        align-items: center;
+        margin-top: 30px;
+        display: grid;
         gap: 5px;
-
+        color: grey;
         label {
-          font-size: 13px;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        select {
+          width: 50px;
+          height: 30px;
+          margin-top: 3px;
+          font-size: 15px;
         }
       }
     }

@@ -18,7 +18,7 @@ onMounted(() => {});
   justify-content: center;
   width: 100%;
   .sub-main {
-    width: 80%;
+    width: 60%;
   }
 }
 </style>
