@@ -1,6 +1,6 @@
 import { ref } from "vue";
 import menuJson from "./data.json";
-const selectedCategory = ref<string>("Categories: All");
+const selectedCategory = ref<string>("");
 const searchValue = ref<string>("");
 const useMenuData = () => {
   interface MenuItem {
@@ -24,6 +24,7 @@ const useMenuData = () => {
     // });
     collapsed.value[index] = !collapsed.value[index];
   };
+  // Filtered data based on search-input
   const filteredData = computed(() => {
     return menuData.value
       .map((group) =>
@@ -44,15 +45,8 @@ const useMenuData = () => {
       )
       .filter((group) => group.length > 0);
   });
-
-  const uniqueCategories = computed(() => {
-    const categories = new Set<string>();
-    menuData.value.flat().forEach((item) => categories.add(item.category));
-    return Array.from(categories);
-  });
   return {
     toggleCollapse,
-    uniqueCategories,
     menuData,
     collapsed,
     searchValue,

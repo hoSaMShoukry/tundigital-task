@@ -3,11 +3,9 @@
     <span class="menu-label">Menu</span>
     <div class="select-boxes">
       <select v-model="selectedCategory">
-        <option
-          :selected="filter == 'Categories: All'"
-          v-for="(filter, index) in filters"
-          :key="index"
-        >
+        <option selected value="">All Categories</option>
+
+        <option v-for="(filter, index) in filters" :key="index">
           {{ filter }}
         </option>
       </select>
@@ -19,13 +17,7 @@
 <script setup lang="ts">
 import useMenuData from "./collapse";
 const { searchValue, selectedCategory } = useMenuData();
-const filters = ref<String[]>([
-  "Categories: All",
-  "Appetizer",
-  "Soups",
-  "Salads",
-  "Sandwiches",
-]);
+const filters = ref<String[]>(["Appetizer", "Soups", "Salads", "Sandwiches"]);
 const filter_input = ref<String>("Categories: All");
 </script>
 

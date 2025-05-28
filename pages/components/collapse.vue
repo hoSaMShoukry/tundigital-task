@@ -1,5 +1,6 @@
 <template>
   <div class="menu">
+    {{ selectedCategory }}
     <div v-for="(group, index) in filteredData" :key="index" class="category">
       <div class="category-header" @click="toggleCollapse(index)">
         <strong>{{ group[0]?.category }}</strong>
@@ -38,8 +39,13 @@
 <script setup lang="ts">
 import useMenuData from "./collapse";
 
-const { menuData, collapsed, searchValue, toggleCollapse, filteredData } =
-  useMenuData();
+const {
+  collapsed,
+  searchValue,
+  toggleCollapse,
+  filteredData,
+  selectedCategory,
+} = useMenuData();
 </script>
 
 <style scoped lang="scss">
