@@ -8,29 +8,31 @@
         </span>
       </div>
       <hr />
-      <div v-show="!collapsed[index]" class="items">
-        <div v-for="(item, i) in group" :key="i" class="item-card">
-          <input type="checkbox" v-model="item.checked" />
-          <img :src="item.image" alt="image" />
-          <div class="info">
-            <h4>{{ item.title }}</h4>
-            <p>{{ item.desc }}</p>
-            <span class="price"
-              >&dollar;{{
-                item.checked
-                  ? (item.price * item.quantity).toFixed(2)
-                  : item.price.toFixed(2)
-              }}</span
-            >
-            <div class="quantity">
-              <label>Quantity</label>
-              <select v-model="item.quantity">
-                <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
-              </select>
+      <transition name="fade">
+        <div v-show="!collapsed[index]" class="items">
+          <div v-for="(item, i) in group" :key="i" class="item-card">
+            <input type="checkbox" v-model="item.checked" />
+            <img :src="item.image" alt="image" />
+            <div class="info">
+              <h4>{{ item.title }}</h4>
+              <p>{{ item.desc }}</p>
+              <span class="price"
+                >&dollar;{{
+                  item.checked
+                    ? (item.price * item.quantity).toFixed(2)
+                    : item.price.toFixed(2)
+                }}</span
+              >
+              <div class="quantity">
+                <label>Quantity</label>
+                <select v-model="item.quantity">
+                  <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -48,6 +50,14 @@ const {
 </script>
 
 <style scoped lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 .menu {
   display: flex;
   flex-direction: column;
