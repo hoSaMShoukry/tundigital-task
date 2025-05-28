@@ -26,11 +26,18 @@ const showWaiting = ref(true);
 onMounted(() => {
   setTimeout(() => {
     showWaiting.value = false;
-  }, 3000); // show for 3 seconds
+  }, 3000);
 });
 </script>
 
 <style scoped>
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 .waiting-screen {
   position: fixed;
   inset: 0;

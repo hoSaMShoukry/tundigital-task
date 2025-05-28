@@ -1,6 +1,5 @@
 <template>
   <div class="menu">
-    {{ selectedCategory }}
     <div v-for="(group, index) in filteredData" :key="index" class="category">
       <div class="category-header" @click="toggleCollapse(index)">
         <strong>{{ group[0]?.category }}</strong>

@@ -73,5 +73,4 @@ const filter_input = ref<String>("Categories: All");
     }
   }
 }
-
 </style>
