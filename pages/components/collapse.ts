@@ -24,14 +24,6 @@ export function useMenuData() {
       }
     });
   };
-  //   const clc_price = (item: MenuItem) => {
-  //     let old_value;
-  //     old_value = item.price;
-  //     if (item.checked) {
-  //       item.price *= item.quantity;
-  //     } else {
-  //       item.price = old_value;
-  //     }
-  //   };
+
   return { menuData, collapsed, toggleCollapse };
 }

@@ -16,7 +16,9 @@
             <p>{{ item.desc }}</p>
             <span class="price"
               >&dollar;{{
-                item.checked ? item.price * item.quantity : item.price
+                item.checked
+                  ? (item.price * item.quantity).toFixed(2)
+                  : item.price.toFixed(2)
               }}</span
             >
             <div class="quantity">
