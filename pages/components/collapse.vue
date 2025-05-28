@@ -164,7 +164,7 @@ const {
 
 @media (max-width: 768px) {
   .items {
-    flex-direction: column;
+    display: grid;
   }
 }
 </style>

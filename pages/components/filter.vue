@@ -62,7 +62,7 @@ const filter_input = ref<String>("Categories: All");
   }
 
   // Responsive styles
-  @media (max-device-width: 600px) {
+  @media (max-device-width: 838px) {
     flex-direction: column;
     align-items: flex-start;
 
@@ -73,4 +73,5 @@ const filter_input = ref<String>("Categories: All");
     }
   }
 }
+
 </style>

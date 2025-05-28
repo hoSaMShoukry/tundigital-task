@@ -21,4 +21,18 @@ onMounted(() => {});
     width: 60%;
   }
 }
+@media (max-device-width: 1253px) {
+  .main {
+    .sub-main {
+      width: 80%;
+    }
+  }
+}
+@media (max-device-width: 850px) {
+  .main {
+    .sub-main {
+      width: 90%;
+    }
+  }
+}
 </style>
