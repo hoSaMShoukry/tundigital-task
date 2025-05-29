@@ -131,8 +131,7 @@ const {
     }
 
     .info {
-      margin-top: 10px;
-
+   margin: 60px 0px;
       h4 {
         margin: 0;
         font-size: 16px;
@@ -152,7 +151,8 @@ const {
       }
 
       .quantity {
-        margin-top: 30px;
+        position: absolute;
+        bottom: 10px;
         display: grid;
         gap: 5px;
         color: grey;
