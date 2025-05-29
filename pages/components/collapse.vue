@@ -131,7 +131,7 @@ const {
     }
 
     .info {
-   margin: 60px 0px;
+   margin: 20px 0px 60px 0px;
       h4 {
         margin: 0;
         font-size: 16px;
