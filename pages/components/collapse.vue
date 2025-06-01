@@ -14,7 +14,7 @@
             <input
               type="checkbox"
               v-model="item.checked"
-              @change="clc_price(item.checked, item.price, item.quantity)"
+              @change="clc_price(item)"
             />
             <img :src="item.image" alt="image" />
             <div class="info">

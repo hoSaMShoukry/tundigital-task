@@ -46,11 +46,11 @@ const useMenuData = () => {
       )
       .filter((group) => group.length > 0);
   });
-  const clc_price = (checked:boolean , price:number , quantity:number)=>{
-    if(checked){
-      toast.info(`total price is ${price*quantity}`)
+  const clc_price = (item: MenuItem) => {
+    if (item.checked) {
+      toast.info(`total price is $${(item.price * item.quantity).toFixed(2)}`);
     }
-  }
+  };
   return {
     toggleCollapse,
     clc_price,
