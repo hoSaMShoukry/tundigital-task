@@ -49,7 +49,11 @@ const useMenuData = () => {
   // Calculate the price irrespective of its quantity
   const clc_price = (item: MenuItem) => {
     if (item.checked) {
-      toast.info(`total price is $${(item.price * item.quantity).toFixed(2)}`);
+      toast.info(
+        `total price of ${item.title} is $${(
+          item.price * item.quantity
+        ).toFixed(2)}`
+      );
     }
   };
   return {
