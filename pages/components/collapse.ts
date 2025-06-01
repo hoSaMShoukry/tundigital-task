@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import menuJson from "./data.json";
+import { toast } from "vue3-toastify";
 const selectedCategory = ref<string>("");
 const searchValue = ref<string>("");
 const useMenuData = () => {
@@ -45,8 +46,14 @@ const useMenuData = () => {
       )
       .filter((group) => group.length > 0);
   });
+  const clc_price = (checked:boolean , price:number , quantity:number)=>{
+    if(checked){
+      toast.info(`total price is ${price*quantity}`)
+    }
+  }
   return {
     toggleCollapse,
+    clc_price,
     menuData,
     collapsed,
     searchValue,

@@ -11,7 +11,11 @@
       <transition name="fade">
         <div v-show="!collapsed[index]" class="items">
           <div v-for="(item, i) in group" :key="i" class="item-card">
-            <input type="checkbox" v-model="item.checked" />
+            <input
+              type="checkbox"
+              v-model="item.checked"
+              @change="clc_price(item.checked, item.price, item.quantity)"
+            />
             <img :src="item.image" alt="image" />
             <div class="info">
               <h4>{{ item.title }}</h4>
@@ -44,6 +48,7 @@ const {
   collapsed,
   searchValue,
   toggleCollapse,
+  clc_price,
   filteredData,
   selectedCategory,
 } = useMenuData();
@@ -131,7 +136,7 @@ const {
     }
 
     .info {
-   margin: 20px 0px 60px 0px;
+      margin: 20px 0px 60px 0px;
       h4 {
         margin: 0;
         font-size: 16px;
