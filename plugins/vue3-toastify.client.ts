@@ -5,7 +5,7 @@ import "vue3-toastify/dist/index.css";
 export default defineNuxtPlugin((nuxtApp:any) => {
   const options: ToastContainerOptions = {
     autoClose: 3000,
-    position: "top-right",
+    position: "top-left",
     // You can customize more options here
   };
 
