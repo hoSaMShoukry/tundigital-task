@@ -5,8 +5,8 @@ const selectedCategory = ref<string>("");
 const searchValue = ref<string>("");
 const useMenuData = () => {
   interface MenuItem {
+    category: string;
     checked: boolean;
-    total: number;
     title: string;
     desc: string;
     price: number;
